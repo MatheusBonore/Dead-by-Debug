@@ -40,8 +40,8 @@ public class progressBarBehaviourScript:MonoBehaviour
 					Destroy(skillCheck);
 				}
 
-				Debug.Log("Complete!");
 				isComplete = true;
+				Destroy(gameObject);
 			}
 		}
 	}
@@ -51,7 +51,6 @@ public class progressBarBehaviourScript:MonoBehaviour
 		progressBar.fillAmount = Mathf.Clamp01(proportion);
 	}
 
-	//Renomear está função
 	void SkillCheck()
 	{
 		if (!isSkillCheck) {
@@ -62,15 +61,37 @@ public class progressBarBehaviourScript:MonoBehaviour
 				skillCheck.transform.SetParent(canvasObject.transform, false);
 
 				SkillCheckBehaviourScript.ScriptOnSkillCheck += OnSkillCheck;
+				SkillCheckBehaviourScript.ScriptOnGreatSkillCheck += OnGreatSkillCheck;
+				SkillCheckBehaviourScript.ScriptOnFailSkillCheck += OnFailSkillCheck;
 			}
 		}
 	}
 
-	void OnSkillCheck()
+	void DestroySkillCheck()
 	{
 		isSkillCheck = false;
 		skillCheck = null;
 
 		SkillCheckBehaviourScript.ScriptOnSkillCheck -= OnSkillCheck;
+		SkillCheckBehaviourScript.ScriptOnGreatSkillCheck -= OnGreatSkillCheck;
+		SkillCheckBehaviourScript.ScriptOnFailSkillCheck -= OnFailSkillCheck;
+	}
+
+	void OnSkillCheck()
+	{
+		Debug.Log("A");
+		DestroySkillCheck();
+	}
+
+	void OnGreatSkillCheck()
+	{
+		Debug.Log("B");
+		DestroySkillCheck();
+	}
+
+	void OnFailSkillCheck()
+	{
+		Debug.Log("C");
+		DestroySkillCheck();
 	}
 }
