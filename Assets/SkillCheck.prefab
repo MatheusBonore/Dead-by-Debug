@@ -327,7 +327,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3405020727891929867}
   - {fileID: 1871788417753106512}
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressImage: {fileID: 129849046218157380}
-  directon: 0
+  direction: 0
   perfectZoneImage: {fileID: 1234835477043892718}
   sizePerfectZone: 0.06
   progressZoneImage: {fileID: 2242722502459526172}
